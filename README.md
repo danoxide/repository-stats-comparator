@@ -1,4 +1,4 @@
-### About the repositories stats comparator
+# About the repositories stats comparator
 Repositories comparator fetch two repositories statistics from GitHub, compare and shows them (like stars, subscribers, open pulls, etc.).
 It helps you as a developer to choose which repository is better.
 
