@@ -1,0 +1,31 @@
+version: '3.5'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    networks:
+      - network
+    links:
+      - php
+    ports:
+      - '80:80'
+    volumes:
+      - ./:/var/www/app:cached
+      - ./logs/nginx:/var/log/nginx:cached
+
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    networks:
+      - network
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./:/var/www/app:cached
+      - ./logs/app:/var/www/app/var/logs:cached
+
+networks:
+  network: {}
